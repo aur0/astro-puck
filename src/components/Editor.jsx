@@ -1,4 +1,5 @@
 import { Render } from "@measured/puck";
+import "../styles/global.css";
 
 const config = {
     components: {
@@ -9,7 +10,7 @@ const config = {
           },
         },
         render: ({ title }) => {
-          return <h1 class="fade-in-text">{title}</h1>;
+          return <h1 class="font-size-8">{title}</h1>;
         },
       },
     },

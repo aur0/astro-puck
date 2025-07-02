@@ -5,3 +5,6 @@
     animation: var(--animation-fade-in) forwards;
   }
   
+.font-size-8 {
+    font-size: var(--font-size-8);
+}
