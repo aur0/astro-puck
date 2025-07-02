@@ -1,8 +1,12 @@
 ---
 import Editor from '../components/Editor.jsx';
 import { getRootPage } from '../lib/fetchPages.js';
+import "../assets/style.css";
 
 const data = await getRootPage();
 ---
 
 <Editor client:only="react" data={data.data} />
+
+
+<p class="fade-in-text">This text will fade in smoothly.</p>

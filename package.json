@@ -8,14 +8,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "engines": {
-    "node": "23.x"
-  },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@measured/puck": "^0.19.1",
     "@supabase/supabase-js": "^2.50.2",
     "astro": "^5.10.2",
+    "open-props": "^1.7.15",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
