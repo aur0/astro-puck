@@ -10,7 +10,7 @@ const config = {
           },
         },
         render: ({ title }) => {
-          return <h1 class="font-size-8">{title}</h1>;
+          return <h1 class="font-size-5 fade-in">{title}</h1>;
         },
       },
     },
