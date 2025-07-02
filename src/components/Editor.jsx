@@ -1,5 +1,4 @@
 import { Render } from "@measured/puck";
-import "../assets/style.css";
 
 const config = {
     components: {
