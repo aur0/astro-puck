@@ -10,3 +10,10 @@
 .font-size-8 {
     font-size: var(--font-size-8);
 }
+
+.shake-in {
+  animation:
+    var(--animation-shake-y),
+    var(--animation-fade-in),
+    var(--animation-slide-in-left);
+}
