@@ -1,7 +1,6 @@
 @import "open-props/fonts";
 @import "open-props/animations";
 
-
 .fade-in-text {
     animation: var(--animation-fade-in) forwards;
   }
