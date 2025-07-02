@@ -1,8 +1,12 @@
 ---
 import Editor from '../components/Editor.jsx';
 import { getRootPage } from '../lib/fetchPages.js';
+import "../styles/global.css";
 
 const data = await getRootPage();
 ---
 
+
+<div class="fade-in">
 <Editor client:only="react" data={data.data} />
+</div>
