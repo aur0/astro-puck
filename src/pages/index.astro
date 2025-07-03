@@ -1,11 +1,11 @@
 ---
 import { getRootPage } from '../lib/fetchPages.js';
-import Editor from '../components/Puck.jsx';
+import Puck from '../components/Puck.jsx';
 
 const data = await getRootPage();
  
 ---
 
 <div class="overflow-hidden">
-  <Editor data={data.data} />
+  <Puck data={data.data} />
 </div>
