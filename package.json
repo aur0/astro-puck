@@ -12,10 +12,13 @@
     "@astrojs/react": "^4.3.0",
     "@measured/puck": "^0.19.1",
     "@supabase/supabase-js": "^2.50.2",
+    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.2",
-    "motion": "^12.23.0",
-    "open-props": "^1.7.15",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "tailwindcss-motion": "^1.1.1"
   }
 }

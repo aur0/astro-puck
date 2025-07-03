@@ -1,6 +1,8 @@
 ---
 import Editor from '../components/Editor.jsx';
 import { getRootPage } from '../lib/fetchPages.js';
+import "../styles/global.css";
+
 
 const data = await getRootPage();
 ---
@@ -10,9 +12,3 @@ const data = await getRootPage();
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
-
-<style>
-.overflow-hidden {
-  overflow: hidden;
-}
-</style>
