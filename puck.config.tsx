@@ -14,7 +14,7 @@ export const config: Config<Props> = {
         title: "Heading",
       },
       render: ({ title }) => (
-        <div className="text-red-500" style={{ padding: 64 }}>
+        <div className="text-red-500 motion-preset-slide-down text-2xl" style={{ padding: 64 }}>
           <h1>{title}</h1>
         </div>
       ),
