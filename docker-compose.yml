@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  astro-deploy:
+    image: node:20-bullseye-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - AWS_ACCESS_KEY_ID=${WASABI_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${WASABI_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=eu-central-2
+      - WASABI_ENDPOINT_URL=${WASABI_ENDPOINT_URL}
+      - WASABI_BUCKET_NAME=${WASABI_BUCKET_NAME}
+    command: >
+      sh -c "
+        apt-get update && apt-get install -y python3 python3-pip &&
+        npm install &&
+        npm run build &&
+        pip3 install awscli &&
+        aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
+      "
