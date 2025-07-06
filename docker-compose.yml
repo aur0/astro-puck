@@ -13,10 +13,12 @@ services:
       - WASABI_ENDPOINT_URL=${WASABI_ENDPOINT_URL}
       - WASABI_BUCKET_NAME=${WASABI_BUCKET_NAME}
     command: >
-      sh -c "
-        apt-get update && apt-get install -y python3 python3-pip &&
-        npm install &&
-        npm run build &&
-        pip3 install awscli &&
-        aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
-      "
+  sh -c "
+    set -e &&
+    apt-get update && apt-get install -y python3 python3-pip &&
+    npm install &&
+    npm run build &&
+    pip3 install awscli &&
+    aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
+  "
+
