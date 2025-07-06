@@ -14,7 +14,7 @@ services:
       - WASABI_BUCKET_NAME=${WASABI_BUCKET_NAME}
     command: >
       sh -c "
-        set -eo pipefail &&
+        set -e &&
         echo '🔄 Updating packages...' &&
         apt-get update &&
         echo '🐍 Installing Python and pip...' &&
