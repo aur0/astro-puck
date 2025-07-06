@@ -23,3 +23,7 @@ services:
         npm run build &&
         aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
       "
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
