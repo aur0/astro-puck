@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  astro-deploy:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - AWS_ACCESS_KEY_ID=${WASABI_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${WASABI_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=eu-central-2
+      - WASABI_ENDPOINT_URL=${WASABI_ENDPOINT_URL}
+      - WASABI_BUCKET_NAME=${WASABI_BUCKET_NAME}
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        apk add --no-cache python3 py3-pip &&
+        pip install awscli &&
+        aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
+      "
