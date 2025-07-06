@@ -28,10 +28,24 @@ export const config: Config<Props> = {
               padding: 0 20px;
             }
 
+            @keyframes slideIn {
+              from {
+                opacity: 0;
+                transform: translateY(-20px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
             .hero h1 {
               font-size: 3rem;
               margin-bottom: 0.5em;
               max-width: 700px;
+              opacity: 0;
+              transform: translateY(-20px);
+              animation: slideIn 0.8s ease forwards;
             }
 
             .hero p {
@@ -39,7 +53,9 @@ export const config: Config<Props> = {
               max-width: 500px;
               margin-bottom: 1.5em;
               line-height: 1.5;
-              opacity: 0.9;
+              opacity: 0;
+              transform: translateY(-20px);
+              animation: slideIn 0.8s ease 0.1s forwards;
             }
 
             .hero button {
@@ -52,6 +68,9 @@ export const config: Config<Props> = {
               cursor: pointer;
               transition: background-color 0.3s ease;
               box-shadow: 0 4px 12px rgba(255,64,129,0.4);
+              opacity: 0;
+              transform: translateY(-20px);
+              animation: slideIn 0.8s ease 0.2s forwards;
             }
 
             .hero button:hover {
@@ -73,8 +92,8 @@ export const config: Config<Props> = {
             }
           `}</style>
           <section className="hero">
-            <h1>Welcome to Your Awesome Landing Page</h1>
-            <p>Build something amazing with clean, fast, and pure vanilla CSS and HTML. No frameworks needed.</p>
+            <h1>This is It Made It</h1>
+            <p>Lets Get It.</p>
             <button>Get Started</button>
           </section>
         </>
