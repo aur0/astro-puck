@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   astro-deploy:
-    image: node:20-alpine
+    image: node:20-bullseye-slim
     working_dir: /app
     volumes:
       - .:/app
@@ -14,9 +14,9 @@ services:
       - WASABI_BUCKET_NAME=${WASABI_BUCKET_NAME}
     command: >
       sh -c "
+        apt-get update && apt-get install -y python3 python3-pip &&
         npm install &&
         npm run build &&
-        apk add --no-cache python3 py3-pip &&
-        pip install awscli &&
+        pip3 install awscli &&
         aws s3 sync ./dist s3://${WASABI_BUCKET_NAME} --endpoint-url=${WASABI_ENDPOINT_URL} --delete
       "
