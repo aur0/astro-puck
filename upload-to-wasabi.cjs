@@ -1,17 +1,19 @@
-const AWS = require("aws-sdk");
-const fs = require("fs");
-const path = require("path");
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import fs from "fs";
+import path from "path";
 
-const s3 = new AWS.S3({
-  accessKeyId: process.env.R2_ACCESS_KEY_ID,
-  secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
-  endpoint: process.env.R2_ENDPOINT,
+const s3Client = new S3Client({
   region: "auto",
-  signatureVersion: "v4",
+  endpoint: process.env.R2_ENDPOINT,
+  credentials: {
+    accessKeyId: process.env.R2_ACCESS_KEY_ID,
+    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
+  },
+  forcePathStyle: true,
 });
 
 const bucket = process.env.R2_BUCKET;
-const distDir = path.join(__dirname, "dist");
+const distDir = path.join(process.cwd(), "dist");
 
 async function uploadDir(dir, prefix = "") {
   const files = fs.readdirSync(dir);
@@ -23,14 +25,14 @@ async function uploadDir(dir, prefix = "") {
     } else {
       const fileContent = fs.readFileSync(fullPath);
       const key = `${prefix}${file}`;
-      await s3
-        .upload({
+      await s3Client.send(
+        new PutObjectCommand({
           Bucket: bucket,
           Key: key,
           Body: fileContent,
-          ACL: "public-read",
+          ACL: "public-read", // Note: might be ignored by R2
         })
-        .promise();
+      );
       console.log(`Uploaded: ${key}`);
     }
   }
