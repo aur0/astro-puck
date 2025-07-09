@@ -38,7 +38,9 @@ async function uploadDir(dir, prefix = "") {
   }
 }
 
-uploadDir(distDir)
+const projectId = process.env.PROJECT_ID || "";
+
+uploadDir(distDir, `${projectId}/`)
   .then(() => {
     console.log("✅ Upload complete");
     process.exit(0);
