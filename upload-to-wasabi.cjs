@@ -1,16 +1,16 @@
-// upload-to-wasabi.js
 const AWS = require("aws-sdk");
 const fs = require("fs");
 const path = require("path");
 
 const s3 = new AWS.S3({
-  accessKeyId: process.env.WASABI_KEY,
-  secretAccessKey: process.env.WASABI_SECRET,
-  endpoint: "https://s3.wasabisys.com",
-  region: "eu-central-2",
+  accessKeyId: process.env.R2_ACCESS_KEY_ID,
+  secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
+  endpoint: process.env.R2_ENDPOINT,
+  region: "auto",
+  signatureVersion: "v4",
 });
 
-const bucket = process.env.WASABI_BUCKET;
+const bucket = process.env.R2_BUCKET;
 const distDir = path.join(__dirname, "dist");
 
 async function uploadDir(dir, prefix = "") {
@@ -36,10 +36,12 @@ async function uploadDir(dir, prefix = "") {
   }
 }
 
-uploadDir(distDir).then(() => {
-  console.log("✅ Upload complete");
-  process.exit(0);
-}).catch(err => {
-  console.error("❌ Upload failed", err);
-  process.exit(1);
-});
+uploadDir(distDir)
+  .then(() => {
+    console.log("✅ Upload complete");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error("❌ Upload failed", err);
+    process.exit(1);
+  });
