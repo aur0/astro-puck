@@ -15,86 +15,14 @@ export const config: Config<Props> = {
       },
       render: ({ title }) => (
         <>
-          <style>{`
-            .hero {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              height: 100vh;
-              text-align: center;
-              background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
-              color: white;
-              padding: 0 20px;
-            }
-
-            @keyframes slideIn {
-              from {
-                opacity: 0;
-                transform: translateY(-20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-
-            .hero h1 {
-              font-size: 3rem;
-              margin-bottom: 0.5em;
-              max-width: 700px;
-              opacity: 0;
-              transform: translateY(-20px);
-              animation: slideIn 0.8s ease forwards;
-            }
-
-            .hero p {
-              font-size: 1.25rem;
-              max-width: 500px;
-              margin-bottom: 1.5em;
-              line-height: 1.5;
-              opacity: 0;
-              transform: translateY(-20px);
-              animation: slideIn 0.8s ease 0.1s forwards;
-            }
-
-            .hero button {
-              background-color: #ff4081;
-              border: none;
-              padding: 15px 30px;
-              font-size: 1.1rem;
-              color: white;
-              border-radius: 30px;
-              cursor: pointer;
-              transition: background-color 0.3s ease;
-              box-shadow: 0 4px 12px rgba(255,64,129,0.4);
-              opacity: 0;
-              transform: translateY(-20px);
-              animation: slideIn 0.8s ease 0.2s forwards;
-            }
-
-            .hero button:hover {
-              background-color: #e73370;
-            }
-
-            /* Responsive tweaks */
-            @media (max-width: 600px) {
-              .hero h1 {
-                font-size: 2rem;
-              }
-              .hero p {
-                font-size: 1rem;
-              }
-              .hero button {
-                padding: 12px 25px;
-                font-size: 1rem;
-              }
-            }
-          `}</style>
-          <section className="hero">
-            <h1>Lets Get st oIt</h1>
-            <p>Lets Get It.</p>
-            <button>Get Started</button>
+        <section className="hero min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-16">
+            <div className="max-w-4xl text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">Let's Get Started</h1>
+              <p className="text-xl md:text-2xl mb-8">Let's Get It.</p>
+              <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300">
+                Get Started
+              </button>
+            </div>
           </section>
         </>
       ),
