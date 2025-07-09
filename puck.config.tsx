@@ -92,7 +92,7 @@ export const config: Config<Props> = {
             }
           `}</style>
           <section className="hero">
-            <h1>Lets Get It</h1>
+            <h1>Lets Get st oIt</h1>
             <p>Lets Get It.</p>
             <button>Get Started</button>
           </section>
