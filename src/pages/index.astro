@@ -5,8 +5,25 @@ import Puck from '../components/Puck.jsx';
 const data = await getRootPage();
 ---
 
-<body>
-    <div>
-      <Puck data={data.data} />
-    </div>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Bizarre Belt - Your Creative Destination" />
+    <title>Bizarre Belt</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://cap.warrenwebsites.co.uk/efce6160be/cap.js" async></script>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto">
+        <Puck data={data.data} />
+      </div>
+    </main>
+
+    <footer class="mt-16 py-8 text-center text-gray-600">
+      <p>&copy; {new Date().getFullYear()} Bizarre Belt. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
