@@ -2,7 +2,10 @@ import type { Config } from "@measured/puck";
 import FadeIn from "./src/components/FadeIn";
 
 type Props = {
-  HeadingBlock: { title: string };
+  HeadingBlock: { 
+    title: string;
+    backgroundImage: string;
+  };
 };
 
 export const config: Config<Props> = {
@@ -10,12 +13,14 @@ export const config: Config<Props> = {
     HeadingBlock: {
       fields: {
         title: { type: "text" },
+        backgroundImage: { type: "text" },
       },
       defaultProps: {
         title: "Heading",
+        backgroundImage: "https://images.pexels.com/photos/32917624/pexels-photo-32917624.jpeg"
       },
-      render: ({ title }) => (
-        <FadeIn title={title} />
+      render: ({ title, backgroundImage }) => (
+        <FadeIn title={title} backgroundImage={backgroundImage} />
       ),
     },
   },

@@ -5,15 +5,33 @@ import * as m from "motion/react-m";
 type FadeInHeroProps = {
   title?: string;
   buttonText?: string;
+  backgroundImage?: string;
 };
 
 export default function FadeInHero({
   title = "Heading",
   buttonText = "Get Started",
+  backgroundImage = ""
 }: FadeInHeroProps) {
+  const optimizedImage = backgroundImage ? (() => {
+    const url = new URL(backgroundImage);
+    const path = url.pathname.slice(1); // Remove leading slash
+    return `https://cdn.statically.io/img/${url.hostname}/${path}`;
+  })() : '';
+  
+  const bgStyle = optimizedImage ? {
+    backgroundImage: `url(${optimizedImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat"
+  } : {};
+
   return (
     <LazyMotion features={domAnimation}>
-      <section className="hero min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-16">
+      <section 
+        className="hero min-h-screen flex items-center justify-center text-white px-4 py-16"
+        style={bgStyle}
+      >
         <div className="max-w-4xl text-center">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +47,7 @@ export default function FadeInHero({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl mb-8"
           >
-            Let&apos;s Get It.
+            Let's Get It.
           </m.p>
           <m.button
             initial={{ opacity: 0, y: 20 }}
