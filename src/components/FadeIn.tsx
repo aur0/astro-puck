@@ -16,7 +16,7 @@ export default function FadeInHero({
   const optimizedImage = backgroundImage ? (() => {
     const url = new URL(backgroundImage);
     const path = url.pathname.slice(1); // Remove leading slash
-    return `https://cdn.statically.io/img/${url.hostname}/${path}`;
+    return `https://cdn.statically.io/img/${url.hostname}/f=auto/${path}`;
   })() : '';
   
   const bgStyle = optimizedImage ? {
