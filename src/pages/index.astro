@@ -3,6 +3,7 @@ import { getRootPage } from '../lib/fetchPages.js';
 import Puck from '../components/Puck.jsx';
 import '../styles/global.css';
 
+
 const data = await getRootPage();
 ---
 
@@ -17,7 +18,7 @@ const data = await getRootPage();
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900">
     <div class="">
-      <Puck data={data.data} />
+      <Puck data={data.data} client:visible />
     </div>
   </body>
 </html>
