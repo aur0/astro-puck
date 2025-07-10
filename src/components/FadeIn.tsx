@@ -13,14 +13,8 @@ export default function FadeInHero({
   buttonText = "Get Started",
   backgroundImage = ""
 }: FadeInHeroProps) {
-  const optimizedImage = backgroundImage ? (() => {
-    const url = new URL(backgroundImage);
-    const path = url.pathname.slice(1); // Remove leading slash
-    return `https://cdn.statically.io/img/${url.hostname}/f=auto/${path}`;
-  })() : '';
-  
-  const bgStyle = optimizedImage ? {
-    backgroundImage: `url(${optimizedImage})`,
+  const bgStyle = backgroundImage ? {
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat"
