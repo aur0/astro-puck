@@ -20,7 +20,7 @@ export const config: Config<Props> = {
         backgroundImage: "https://images.pexels.com/photos/32917624/pexels-photo-32917624.jpeg"
       },
       render: ({ title, backgroundImage }) => (
-        <FadeIn title={title} backgroundImage={backgroundImage} />
+        <FadeIn title={title} backgroundImage={backgroundImage} client:visible />
       ),
     },
   },
