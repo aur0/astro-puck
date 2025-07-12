@@ -28,37 +28,18 @@ export const config: Config<Props> = {
           background: '#f5f5f5',
           padding: '0 1rem'
         }}>
-          <style>
-            {`
-              @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-              }
-            `}
-          </style>
           <div className="hero-content" style={{
             maxWidth: '600px'
           }}>
             <h1 style={{
               fontSize: '3rem',
               marginBottom: '1rem',
-              color: '#333',
-              opacity: 0,
-              animationName: 'fadeIn',
-              animationDuration: '1s',
-              animationTimingFunction: 'ease-in-out',
-              animationFillMode: 'forwards'
+              color: '#333'
             }}>{title}</h1>
             <p style={{
               fontSize: '1.25rem',
               color: '#666',
-              marginBottom: '2rem',
-              opacity: 0,
-              animationName: 'fadeIn',
-              animationDuration: '1s',
-              animationTimingFunction: 'ease-in-out',
-              animationDelay: '0.2s',
-              animationFillMode: 'forwards'
+              marginBottom: '2rem'
             }}>Your success starts here.</p>
             <a 
               href="#get-started" 
@@ -70,19 +51,13 @@ export const config: Config<Props> = {
                 textDecoration: 'none',
                 borderRadius: '5px',
                 fontWeight: 'bold',
-                transition: 'background-color 0.2s ease',
-                opacity: 0,
-                animationName: 'fadeIn',
-                animationDuration: '1s',
-                animationTimingFunction: 'ease-in-out',
-                animationDelay: '0.4s',
-                animationFillMode: 'forwards'
+                transition: 'background-color 0.2s ease'
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = '#0056b3';
+                e.currentTarget.style.backgroundColor = '#000';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = '#007bff';
+                e.currentTarget.style.backgroundColor = '#000';
               }}
             >Get Started</a>
           </div>
